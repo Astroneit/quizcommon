@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>  
+ <script type="text/javascript">
+ window.onload = function () {
+   var chart = new CanvasJS.Chart("chartContainer",
+   {      
+     theme:"theme2",
+     title:{
+       text: "Game of Thrones, Viewers of the first airing on HBO"
+     },
+     animationEnabled: true,
+     axisY :{
+       includeZero: false,
+       // suffix: " k",
+       valueFormatString: "#,,.",
+       suffix: " mn"
+       
+     },
+     toolTip: {
+       shared: "true"
+     },
+     data: [
+     {        
+       type: "spline",
+       showInLegend: true,
+       name: "Season 2",
+       // markerSize: 0,        
+       // color: "rgba(54,158,173,.6)",
+       dataPoints: [
+       {label: "test1", y: 3858000},
+       {label: "test2", y: 3759000},        
+       {label: "test2", y: 3766000},        
+       {label: "test2", y: 3654000},        
+       {label: "test2", y: 3903000},        
+       {label: "test2", y: 3879000},        
+       {label: "test2", y: 3694000}        
+   
+
+       ]
+     }
+     
+
+     ],
+     legend:{
+       cursor:"pointer",
+       itemclick : function(e) {
+         if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+          e.dataSeries.visible = false;
+         }
+         else {
+           e.dataSeries.visible = true;
+         }
+         chart.render();
+       }
+       
+     },
+   });
+
+chart.render();
+}
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+</head>
+<body>
+ <div id="chartContainer" style="height: 300px; width: 600px;">
+ </div>
+</body>
+</html>

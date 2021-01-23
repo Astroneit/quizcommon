@@ -1,0 +1,122 @@
+<?php
+
+?><div class="modal-dialog">
+            <div class="modal-header">
+			<?php if($job_detail[0]['company_name']=='')
+		{
+		}
+		else{
+			?>
+		<h4 class="modal-title"><?php echo $job_detail[0]['company_name'];?></h4><?php } ?>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-content">
+				<div class="jobstitle">
+				<?php if($job_detail[0]['job_required']=='')
+		{
+		}
+		else{
+			?>
+				   <h4><?php echo $job_detail[0]['job_required'];?></h4>
+		<?php } ?>
+				   <div class="jobexp">
+						<ul>
+							<li>
+							<?php if($job_detail[0]['experience']=='')
+		{
+		}
+		else{
+			?>
+								<span><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+		<?php echo $job_detail[0]['experience']; }?>
+							</li>
+							<!--<li>
+								<span><i class="fa fa-money" aria-hidden="true"></i></span>
+								Rs. 2.0-3.0 Lakh/Yr
+							</li>-->
+							<li>
+							<?php if($job_detail[0]['location']=='')
+		{
+		}
+		else{
+			?>
+								<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+		<?php echo $job_detail[0]['location']; }?>
+							</li>
+						</ul>
+				   </div>
+				 </div>
+				 <div class="jobdesc">
+					
+<div class="table-responsive">          
+  <table class="table">
+    
+    <tbody>
+	<tr> 
+	<?php if($job_detail[0]['designation']=='')
+		{
+		}
+		else{
+			?>
+	<td><strong>Designation:</strong></td> <td> <?php echo $job_detail[0]['designation'];?> </td>
+		<?php } ?>
+		</tr>
+		<?php if($job_detail[0]['interview_timing']=='')
+		{
+		}
+		else{
+			?>
+		<tr>
+		
+        <td><strong>InterviewTiming:</strong></td> <td> <?php echo $job_detail[0]['interview_timing'];?></td>
+		</tr>
+		<?php } ?>
+		<tr>
+		<?php if($job_detail[0]['mobile_number']=='')
+		{
+		}
+		else{
+			?>
+        <td><strong>Contact No:</strong></td><td><?php echo $job_detail[0]['mobile_number'];?></td>
+		<?php } ?>
+        </tr>
+		<tr>
+		<?php if($job_detail[0]['contact_mail']=='')
+		{
+		}
+		else{
+			?>
+        <td><strong>Email</strong></td><td><?php echo $job_detail[0]['contact_mail'];?></td>
+		<?php } ?>
+		</tr>
+		<tr>
+		<?php if($job_detail[0]['type']=='')
+		{
+		}
+		else{
+			?>
+        <td><strong>Company Type:</strong></td><td><?php echo $job_detail[0]['type'];?></td>
+		<?php } ?>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+				 </div>
+				 <div class="postedon">
+					<?php if($job_detail[0]['posted_date']=='')
+		{
+		}
+		else{
+			?>
+		<p><span><strong>Posted on: </strong> </span><?php echo $job_detail[0]['posted_date'];?></p><?php } ?>
+							
+						<?php if($job_detail[0]['website_name']=='')
+		{
+		}
+		else{
+			?>	
+		<p style="margin-left:200px;"><span><strong>Website Name: </strong> </span><?php echo $job_detail[0]['website_name'];?></p><?php } ?>
+				 </div> 
+            </div>
+        </div>
