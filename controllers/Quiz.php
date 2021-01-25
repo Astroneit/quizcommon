@@ -79,6 +79,7 @@ class Quiz extends CI_Controller {
 		$data['qcl']=$this->quiz_model->get_qcl($data['quiz']['quid']);
 		$data['category_list']=$this->qbank_model->category_list();
 		$data['level_list']=$this->qbank_model->level_list();
+		$data['subSkillList']=$this->quiz_model->getAllSubSKills();
 		}
 		
 		$this->load->view('header',$data);
@@ -89,9 +90,9 @@ class Quiz extends CI_Controller {
 	
 	
 	
-	function no_q_available($cid,$lid){
+	function no_q_available($cid,$lid,$subskillid){
 		$val="<select name='noq[]'>";
-		$query=$this->db->query("select * from savsoft_qbank where cid='$cid' and lid='$lid' ");
+		$query=$this->db->query("select * from savsoft_qbank where cid='$cid' and lid='$lid' and sub_skill_id='$subskillid' ");
 		$nor=$query->num_rows();
 		for($i=0; $i<= $nor; $i++){
 			$val.="<option value='".$i."' >".$i."</option>";
@@ -249,9 +250,11 @@ class Quiz extends CI_Controller {
 					redirect('quiz/edit_quiz/'.$quid);
                 }
                 else
-                {
-					$quid=$this->quiz_model->update_quiz($quid);
-                   
+				{ 	$quiz=$this->quiz_model->get_quiz($quid);
+					if($quiz['question_selection']==1)
+					{
+						$quid=$this->quiz_model->update_quiz($quid);
+					}
 					redirect('quiz/edit_quiz/'.$quid);
                 }       
 
